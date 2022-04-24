@@ -1,19 +1,32 @@
 # Incomplete app!
 
+from re import A
+
+
 MENU_PROMPT = "\nEnter 'a' to add a movie, 'l' to see your movies, 'f' to find a movie by title, or 'q' to quit: "
 movies = []
 
 
 # You may want to create a function for this code
-title = input("Enter the movie title: ")
-director = input("Enter the movie director: ")
-year = input("Enter the movie release year: ")
 
-movies.append({
+def input_movie():
+    title = input("Enter the movie title: ")
+    director = input("Enter the movie director: ")
+    year = input("Enter the movie release year: ")
+
+    movies.append({
     'title': title,
     'director': director,
-    'year': year
-})
+    'year': year })
+
+
+def print_list():
+    for i in movies:
+        print("\ntitle: " + i["title"] + "\ndirector: " + i["director"] + "\nyear: " + i["year"])
+
+
+def find_movie():
+    pass
 
 
 # Create other functions for:
@@ -25,11 +38,11 @@ movies.append({
 selection = input(MENU_PROMPT)
 while selection != 'q':
     if selection == "a":
-        pass
+        input_movie()
     elif selection == "l":
-        pass
+        print_list()
     elif selection == "f":
-        pass
+        find_movie()
     else:
         print('Unknown command. Please try again.')
 
