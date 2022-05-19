@@ -1,27 +1,44 @@
-karta_rodzaj = ["Kier", "Karo", "Trefl", "Pik"]
-karta_wartosc = ["A", 2, 3, 4, 5, 6, 7, 8, 9, 10, "J", "Q", "K"]
+import random
 
-key_karty_kier =[]
-key_karty_karo =[]
-key_karty_trefl =[]
-key_karty_pik =[]
+class Talia:
 
-for i in karta_wartosc:
-    key_karty_kier.append(karta_rodzaj[0])
-    key_karty_karo.append(karta_rodzaj[1])
-    key_karty_trefl.append(karta_rodzaj[2])
-    key_karty_pik.append(karta_rodzaj[3])
+    def create():
+        karta_rodzaj = ["Kier", "Karo", "Trefl", "Pik"]
+        karta_wartosc = ["A", 2, 3, 4, 5, 6, 7, 8, 9, 10, "J", "Q", "K"]
 
-talia_kier = list(zip(key_karty_kier, karta_wartosc))
-talia_karo = list(zip(key_karty_karo, karta_wartosc))
-talia_trefl = list(zip(key_karty_trefl, karta_wartosc))
-talia_pik = list(zip(key_karty_pik, karta_wartosc))
+        key_karty_kier =[]
+        key_karty_karo =[]
+        key_karty_trefl =[]
+        key_karty_pik =[]
 
-talia = []
-talia.extend(talia_kier)
-talia.extend(talia_karo)
-talia.extend(talia_trefl)
-talia.extend(talia_pik)
+        for i in karta_wartosc:
+            key_karty_kier.append(karta_rodzaj[0])
+            key_karty_karo.append(karta_rodzaj[1])
+            key_karty_trefl.append(karta_rodzaj[2])
+            key_karty_pik.append(karta_rodzaj[3])
 
-print(talia)
-print(len(talia))
+        talia_kier = list(zip(key_karty_kier, karta_wartosc))
+        talia_karo = list(zip(key_karty_karo, karta_wartosc))
+        talia_trefl = list(zip(key_karty_trefl, karta_wartosc))
+        talia_pik = list(zip(key_karty_pik, karta_wartosc))
+
+        talia = []
+        talia.extend(talia_kier)
+        talia.extend(talia_karo)
+        talia.extend(talia_trefl)
+        talia.extend(talia_pik)
+        return talia
+
+    def tasuj():
+        _talia = Talia.create() 
+        random.shuffle(_talia)
+        return _talia
+
+    def rozdaj():
+        _karta = Talia.tasuj()[0]
+        return _karta
+
+
+talia_potasowana = Talia.rozdaj()
+
+print(talia_potasowana)
